@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const database = require('./config/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -43,11 +44,26 @@ app.use((req, res) => {
   });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-  console.log(`📍 Health check: http://localhost:${PORT}/api/health`);
-  console.log(`⏰ Started at: ${new Date().toISOString()}`);
-});
+// Initialize Database and Start Server
+const startServer = async () => {
+  try {
+    // Test database connection
+    console.log('🔄 Testing database connection...');
+    await database.testConnection();
+    console.log('✅ Database connection successful');
+    
+    // Start server
+    app.listen(PORT, () => {
+      console.log(`✅ Server running on port ${PORT}`);
+      console.log(`📍 Health check: http://localhost:${PORT}/api/health`);
+      console.log(`⏰ Started at: ${new Date().toISOString()}`);
+    });
+  } catch (error) {
+    console.error('❌ Failed to start server:', error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 module.exports = app;
