@@ -53,7 +53,7 @@ class EmailService {
       }
 
       // Create transporter
-      this.transporter = nodemailer.createTransporter(transportConfig);
+      this.transporter = nodemailer.createTransport(transportConfig);
 
       // Verify connection
       await this.transporter.verify();
