@@ -76,9 +76,3 @@ jspm_packages/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# Documentation
-CLAUDE.md
-PLANNING.md
-TASKS.md
-PRD.md
