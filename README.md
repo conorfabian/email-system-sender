@@ -20,8 +20,10 @@ You need:
 2. `cd backend && npm install`
 3. Create `.env` file (copy from `.env.example`)
 4. Set up MySQL database (see below)
-5. `npm run dev` to start
-6. Open `frontend/index.html` in browser
+5. `npm run dev` to start backend
+6. Install http-server: `npm install -g http-server`
+7. Serve frontend: `cd frontend && http-server -p 8080 --cors`
+8. Open http://localhost:8080 in browser
 
 ## Database Setup
 
@@ -51,13 +53,24 @@ For Gmail: enable 2FA, then create an "App Password" in your Google Account sett
 
 ## How to Run
 
+**Backend:**
 ```bash
 cd backend
 npm install
 npm run dev
 ```
 
-Then open `frontend/index.html` in your browser. Done!
+**Frontend:**
+```bash
+# Install http-server globally (one time)
+npm install -g http-server
+
+# Then serve the frontend
+cd frontend
+http-server -p 8080 --cors
+```
+
+Then open **http://localhost:8080** in your browser. Done!
 
 ## API
 
