@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware Configuration
 app.use(cors({
-  origin: ['http://localhost:8080', 'file://', 'null'],
+  origin: ['http://localhost:8080', 'file://', 'null', 'http://127.0.0.1:8080', 'http://192.168.4.146:8080'],
   credentials: true
 }));
 

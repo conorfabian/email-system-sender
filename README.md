@@ -53,6 +53,7 @@ For Gmail: enable 2FA, then create an "App Password" in your Google Account sett
 
 ```bash
 cd backend
+npm install
 npm run dev
 ```
 
